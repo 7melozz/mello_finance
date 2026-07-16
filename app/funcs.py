@@ -26,6 +26,7 @@ def _validate_telegram_id(telegram_id):
 
 
 def _handle_db_error(exc, context):
+    print(exc)
     raise RuntimeError(f"Erro ao {context}") from exc
 
 
