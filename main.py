@@ -5,6 +5,8 @@ from app.api.routes_accounts import router as accounts_router
 from app.api.routes_transactions import router as transactions_router
 from app.api.routes_categories import router as categories_router
 from app.api.routes_analytics import router as analytics_router
+from app.api.routes_goals import router as goals_router
+from app.api.routes_health import router as health_router
 
 app = FastAPI(
     title="Mello API",
@@ -17,6 +19,8 @@ app.include_router(accounts_router)
 app.include_router(transactions_router)
 app.include_router(categories_router)
 app.include_router(analytics_router)
+app.include_router(goals_router)
+app.include_router(health_router)
 
 @app.get("/")
 def home():
