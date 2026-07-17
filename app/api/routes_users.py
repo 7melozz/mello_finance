@@ -5,6 +5,12 @@ from app.exceptions import BadRequestError, ConflictError, NotFoundError
 
 router = APIRouter(prefix="/users", tags=["Users"])
 
+@router.get("/telegram/{telegram_id}", response_model=UserResponse)
+def get_user_by_telegram(telegram_id: int):
+    try:
+        return UserService.get_user_by_telegram_id(telegram_id)
+    except NotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))
 
 @router.post("", response_model=UserResponse, status_code=201)
 def create_user(payload: UserCreate):
@@ -45,3 +51,10 @@ def delete_user(user_id: int):
         raise HTTPException(status_code=404, detail=str(exc))
     except ConflictError as exc:
         raise HTTPException(status_code=409, detail=str(exc))
+
+@router.get("/telegram/{telegram_id}")
+def get_user_by_telegram(telegram_id: int):
+    try:
+        return UserService.get_user_by_telegram(telegram_id)
+    except NotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc))

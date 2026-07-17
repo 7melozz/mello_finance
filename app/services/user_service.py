@@ -18,6 +18,24 @@ class UserService:
         return user
 
     @staticmethod
+    def get_user_by_telegram(telegram_id: int):
+        user = UserRepository.get_user_by_telegram_id(telegram_id)
+
+        if not user:
+            raise NotFoundError("Usuário não encontrado")
+
+        return user
+    
+    @staticmethod
+    def get_user_by_telegram_id(telegram_id: int):
+        user = UserRepository.get_user_by_telegram_id(telegram_id)
+
+        if not user:
+            raise NotFoundError("Usuário não encontrado")
+
+        return user
+
+    @staticmethod
     def list_users():
         return UserRepository.list_users()
 

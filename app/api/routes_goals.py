@@ -6,8 +6,7 @@ from app.schemas.goal_schema import (
     GoalCreate,
     GoalProgressResponse,
     GoalResponse,
-    GoalUpdate,
-    GoalSummaryResponse,
+    GoalUpdate
 )
 from app.services.goal_service import GoalService
 
@@ -66,33 +65,17 @@ def list_user_goals(user_id: int):
     except NotFoundError as exc:
         handle_exception(exc)
 
+#@router.get(
+ #   "/{goal_id}",
+  #  response_model=GoalResponse
+#)
+#def get_goal(goal_id: int):
 
+ #   try:
+  #      return GoalService.get_goal(goal_id)
 
-@router.get(
-    "/user/{user_id}/summary",
-    response_model=GoalSummaryResponse
-)
-def get_user_goal_summary(user_id: int):
-
-    try:
-        return GoalService.get_goal_summary(user_id)
-
-    except NotFoundError as exc:
-        handle_exception(exc)
-
-
-
-@router.get(
-    "/{goal_id}",
-    response_model=GoalResponse
-)
-def get_goal(goal_id: int):
-
-    try:
-        return GoalService.get_goal(goal_id)
-
-    except NotFoundError as exc:
-        handle_exception(exc)
+   # except NotFoundError as exc:
+    #    handle_exception(exc)
 
 
 
