@@ -1,7 +1,7 @@
 from datetime import date
 from decimal import Decimal
 
-from app.funcs import (
+from app.legacy.funcs import (
     create_account,
     create_reminder,
     create_transaction,

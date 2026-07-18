@@ -6,7 +6,7 @@ from datetime import date
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from app.funcs import (
+from app.legacy.funcs import (
     create_account,
     create_reminder,
     create_transaction,

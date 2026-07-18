@@ -29,3 +29,4 @@ class AnalyticsRepository:
             )
             result = conn.execute(query, {"user_id": user_id, "month": month, "year": year})
             return [row for row in result.mappings()]
+
