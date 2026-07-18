@@ -11,7 +11,7 @@ def create_account(payload: AccountCreate):
     try:
         return AccountService.create_account(
             user_id=payload.user_id,
-            account_name=payload.account_name,
+            account_type=payload.account_type,
             bank_name=payload.bank_name,
         )
     except NotFoundError as exc:
@@ -41,7 +41,7 @@ def update_account(account_id: int, payload: AccountUpdate):
     try:
         return AccountService.update_account(
             account_id=account_id,
-            account_name=payload.account_name,
+            account_type=payload.account_type,
             bank_name=payload.bank_name,
         )
     except NotFoundError as exc:
